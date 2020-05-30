@@ -75,7 +75,7 @@ client.on("message", (message) => {
 function getMeme() {
     var imagen = pathImagenes[Math.floor(Math.random() * pathImagenes.length)];
     var msg = new Discord.MessageEmbed();
-    return msg.setImage(imagen);
+    return msg.attachFiles([imagen]);
 }
 
 client.login(token)
