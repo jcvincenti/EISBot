@@ -7,6 +7,15 @@ const mensajeAncla = new Discord.MessageEmbed();
 mensajeAncla.setTitle("Que es esto ?");
 mensajeAncla.attachFiles(['Imagenes/ancla.png']);
 
+const pathImagenes = [
+    "Imagenes/cluster-dignidad.jpeg",
+    "Imagenes/croce-troche-diaz.png",
+    "Imagenes/diaz-troche.jpg",
+    "Imagenes/dieguito-re-loco.jpg",
+    "Imagenes/ronny-drop-schema.jpeg",
+    "Imagenes/ronny-group-by.jpeg"
+];
+
 const mensajesDiego = [
     "Zarpado!",
     "Viva Peron!",
@@ -58,6 +67,15 @@ client.on("message", (message) => {
     if (message.content.includes(prefix + "Croce")) {
         message.channel.send(mensajesCroce[Math.floor(Math.random() * mensajesCroce.length)]);
     }
+    if (message.content.includes(prefix + "Meme")) {
+        message.channel.send(getMeme());
+    }
 });
+
+function getMeme() {
+    var imagen = pathImagenes[Math.floor(Math.random() * pathImagenes.length)];
+    var msg = new Discord.MessageEmbed();
+    return msg.setImage(imagen);
+}
 
 client.login(token)
