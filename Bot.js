@@ -42,7 +42,8 @@ const mensajesTroche = [
 ];
 
 const mensajesCroce = [
-    "Que están cursando ustedes?"
+    "Que están cursando ustedes?",
+    "Queremos desaburrir en un %30 a los usuarios"
 ];
 
 const mensajesDiaz = [
