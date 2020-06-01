@@ -48,7 +48,8 @@ const mensajesCroce = [
 
 const mensajesDiaz = [
     "El video muestra un ancla y vos ahí tenes 2. No entiendo.",
-    mensajeAncla
+    mensajeAncla,
+    "Puede haber un recreito chiquitito?"
 ];
 
 client.on("ready", () => {
