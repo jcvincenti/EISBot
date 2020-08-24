@@ -75,7 +75,7 @@ client.on("message", (message) => {
         message.channel.send(mensajesCroce[Math.floor(Math.random() * mensajesCroce.length)]);
     }
     if (message.content.includes(prefix + "Fabi")) {
-        message.channel.send(mensajesCroce[Math.floor(Math.random() * mensajesFabi.length)]);
+        message.channel.send(mensajesFabi[Math.floor(Math.random() * mensajesFabi.length)]);
     }
     if (message.content.includes(prefix + "Meme")) {
         message.channel.send(getMeme());
