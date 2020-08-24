@@ -10,6 +10,7 @@ mensajeAncla.attachFiles(['Imagenes/ancla.png']);
 const pathImagenes = [
     "Imagenes/cluster-dignidad.jpeg",
     "Imagenes/croce-troche-diaz.png",
+    "Imagenes/croce-troche-diaz-spiderman.png",
     "Imagenes/diaz-troche.jpg",
     "Imagenes/dieguito-re-loco.jpg",
     "Imagenes/ronny-drop-schema.jpeg",
@@ -52,6 +53,10 @@ const mensajesDiaz = [
     "Puede haber un recreito chiquitito?"
 ];
 
+const mensajesFabi = [
+    "Fernando García estás desmuteado"
+];
+
 client.on("ready", () => {
     console.log("Estoy listo");
 });
@@ -68,6 +73,9 @@ client.on("message", (message) => {
     }
     if (message.content.includes(prefix + "Croce")) {
         message.channel.send(mensajesCroce[Math.floor(Math.random() * mensajesCroce.length)]);
+    }
+    if (message.content.includes(prefix + "Fabi")) {
+        message.channel.send(mensajesCroce[Math.floor(Math.random() * mensajesFabi.length)]);
     }
     if (message.content.includes(prefix + "Meme")) {
         message.channel.send(getMeme());
