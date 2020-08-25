@@ -58,7 +58,8 @@ const mensajesFabi = [
 ];
 
 const mensajesAndi = [
-    "Esa tiene linda vocecita"
+    "Esa tiene linda vocecita",
+    "Es feita la gordi, paso"
 ];
 
 client.on("ready", () => {
