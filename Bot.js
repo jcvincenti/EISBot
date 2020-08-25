@@ -62,48 +62,24 @@ client.on("ready", () => {
 });
 
 client.on("message", (message) => {
-    switch (message.content) {
-        case prefix + "Dieg":
-            message.channel.send(mensajesDiego[Math.floor(Math.random() * mensajesDiego.length)]);
-            break;
-        case prefix + "Troche":
-            message.channel.send(mensajesTroche[Math.floor(Math.random() * mensajesTroche.length)]);
-            break;
-        case prefix + "Diaz":
-            message.channel.send(mensajesDiaz[Math.floor(Math.random() * mensajesDiaz.length)]);
-            break;
-        case prefix + "Croce":
-            message.channel.send(mensajesCroce[Math.floor(Math.random() * mensajesCroce.length)]);
-            break;
-        case prefix + "Fabi":
-            message.channel.send(mensajesFabi[Math.floor(Math.random() * mensajesFabi.length)]);
-            break;
-        case prefix + "Meme":
-            message.channel.send(getMeme());
-            break;
-        default:
-            message.channel.send("Le pifiaste manija, intentá de nuevo.");
-            break;
+    if (message.content.includes(prefix + "Dieg")) {
+        message.channel.send(mensajesDiego[Math.floor(Math.random() * mensajesDiego.length)]);
     }
-
-    // if (message.content.includes(prefix + "Dieg")) {
-    //     message.channel.send(mensajesDiego[Math.floor(Math.random() * mensajesDiego.length)]);
-    // }
-    // if (message.content.includes(prefix + "Troche")) {
-    //     message.channel.send(mensajesTroche[Math.floor(Math.random() * mensajesTroche.length)]);
-    // }
-    // if (message.content.includes(prefix + "Diaz")) {
-    //     message.channel.send(mensajesDiaz[Math.floor(Math.random() * mensajesDiaz.length)]);
-    // }
-    // if (message.content.includes(prefix + "Croce")) {
-    //     message.channel.send(mensajesCroce[Math.floor(Math.random() * mensajesCroce.length)]);
-    // }
-    // if (message.content.includes(prefix + "Fabi")) {
-    //     message.channel.send(mensajesFabi[Math.floor(Math.random() * mensajesFabi.length)]);
-    // }
-    // if (message.content.includes(prefix + "Meme")) {
-    //     message.channel.send(getMeme());
-    // }
+    if (message.content.includes(prefix + "Troche")) {
+        message.channel.send(mensajesTroche[Math.floor(Math.random() * mensajesTroche.length)]);
+    }
+    if (message.content.includes(prefix + "Diaz")) {
+        message.channel.send(mensajesDiaz[Math.floor(Math.random() * mensajesDiaz.length)]);
+    }
+    if (message.content.includes(prefix + "Croce")) {
+        message.channel.send(mensajesCroce[Math.floor(Math.random() * mensajesCroce.length)]);
+    }
+    if (message.content.includes(prefix + "Fabi")) {
+        message.channel.send(mensajesFabi[Math.floor(Math.random() * mensajesFabi.length)]);
+    }
+    if (message.content.includes(prefix + "Meme")) {
+        message.channel.send(getMeme());
+    }
 });
 
 function getMeme() {
