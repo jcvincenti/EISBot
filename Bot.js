@@ -57,6 +57,10 @@ const mensajesFabi = [
     "Fernando García estás desmuteado"
 ];
 
+const mensajesAndi = [
+    "Esa tiene linda vocecita"
+];
+
 client.on("ready", () => {
     console.log("Estoy listo");
 });
@@ -77,8 +81,10 @@ client.on("message", (message) => {
     if (message.content.includes(prefix + "Fabi")) {
         message.channel.send(mensajesFabi[Math.floor(Math.random() * mensajesFabi.length)]);
     }
-    if (message.content.includes(prefix + "Juan") 
-        || message.content.includes(prefix + "And") 
+    if (message.content.includes(prefix + "And")) {
+        message.channel.send(mensajesAndi[Math.floor(Math.random() * mensajesAndi.length)]);
+    }
+    if (message.content.includes(prefix + "Juan")
         || message.content.includes(prefix + "Fede") 
         || message.content.includes(prefix + "Gaston")) {
             message.channel.send("Rajá de acá puto, todavía no tengo mensaje");
