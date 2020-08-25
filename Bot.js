@@ -77,6 +77,12 @@ client.on("message", (message) => {
     if (message.content.includes(prefix + "Fabi")) {
         message.channel.send(mensajesFabi[Math.floor(Math.random() * mensajesFabi.length)]);
     }
+    if (message.content.includes(prefix + "Juan") 
+        || message.content.includes(prefix + "And") 
+        || message.content.includes(prefix + "Fede") 
+        || message.content.includes(prefix + "Gaston")) {
+            message.channel.send("Rajá de acá puto, todavía no tengo mensaje");
+    }
     if (message.content.includes(prefix + "Meme")) {
         message.channel.send(getMeme());
     }
