@@ -2,7 +2,6 @@ require('dotenv').config();
 
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const prefix = process.env.PREFIX;
 const mensajeAncla = new Discord.MessageEmbed();
 mensajeAncla.setTitle("Que es esto ?");
 mensajeAncla.attachFiles(['Imagenes/ancla.png']);
@@ -107,5 +106,5 @@ function _sendMessage(messages) {
 }
 
 function _messageMatches(content) {
-    return message.content.includes(prefix + content);
+    return message.content.includes(process.env.PREFIX + content);
 }
