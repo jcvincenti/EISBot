@@ -1,11 +1,13 @@
+require('dotenv').config();
+
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const config = require("./config.json");
-const token = config.token;
-const prefix = config.prefix;
+const prefix = process.env.PREFIX;
 const mensajeAncla = new Discord.MessageEmbed();
 mensajeAncla.setTitle("Que es esto ?");
 mensajeAncla.attachFiles(['Imagenes/ancla.png']);
+
+var message;
 
 const pathImagenes = [
     "Imagenes/cluster-dignidad.jpeg",
@@ -62,43 +64,48 @@ const mensajesAndi = [
     "Es feita la gordi, paso"
 ];
 
-client.on("ready", () => {
-    console.log("Estoy listo");
-});
+client.login(process.env.TOKEN)
 
-client.on("message", (message) => {
-    if (message.content.includes(prefix + "Dieg")) {
-        message.channel.send(mensajesDiego[Math.floor(Math.random() * mensajesDiego.length)]);
-    }
-    if (message.content.includes(prefix + "Troche")) {
-        message.channel.send(mensajesTroche[Math.floor(Math.random() * mensajesTroche.length)]);
-    }
-    if (message.content.includes(prefix + "Diaz")) {
-        message.channel.send(mensajesDiaz[Math.floor(Math.random() * mensajesDiaz.length)]);
-    }
-    if (message.content.includes(prefix + "Croce")) {
-        message.channel.send(mensajesCroce[Math.floor(Math.random() * mensajesCroce.length)]);
-    }
-    if (message.content.includes(prefix + "Fabi")) {
-        message.channel.send(mensajesFabi[Math.floor(Math.random() * mensajesFabi.length)]);
-    }
-    if (message.content.includes(prefix + "And")) {
-        message.channel.send(mensajesAndi[Math.floor(Math.random() * mensajesAndi.length)]);
-    }
-    if (message.content.includes(prefix + "Juan")
-        || message.content.includes(prefix + "Fede") 
-        || message.content.includes(prefix + "Gaston")) {
+client.on("message", (msg) => {
+    message = msg;
+    switch(true) {
+        case _messageMatches("Dieg"):
+            _sendMessage(mensajesDiego);
+            break;
+        case _messageMatches("Troche"):
+            _sendMessage(mensajesTroche);
+            break;
+        case _messageMatches("Diaz"):
+            _sendMessage(mensajesDiaz);
+            break;
+        case _messageMatches("Croce"):
+            _sendMessage(mensajesCroce);
+            break;
+        case _messageMatches("Fabi"):
+            _sendMessage(mensajesFabi);
+            break;
+        case _messageMatches("And"):
+            _sendMessage(mensajesAndi);
+            break;
+        case _messageMatches("Juan") || _messageMatches("Fede") || _messageMatches("Gaston"):
             message.channel.send("Rajá de acá puto, todavía no tengo mensaje");
-    }
-    if (message.content.includes(prefix + "Meme")) {
-        message.channel.send(getMeme());
+            break;
+        case _messageMatches("Meme"):
+            message.channel.send(getMeme());
+            break;
     }
 });
 
 function getMeme() {
-    var imagen = pathImagenes[Math.floor(Math.random() * pathImagenes.length)];
-    var msg = new Discord.MessageEmbed();
+    let imagen = pathImagenes[Math.floor(Math.random() * pathImagenes.length)];
+    let msg = new Discord.MessageEmbed();
     return msg.attachFiles([imagen]);
 }
 
-client.login(token)
+function _sendMessage(messages) {
+    message.channel.send(messages[Math.floor(Math.random() * messages.length)]);
+}
+
+function _messageMatches(content) {
+    return message.content.includes(prefix + content);
+}
